@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  flagppe-php-sdk:
+    container_name: ${PHP_SERVER_NAME}
+    user: ${U_ID}:${G_ID}
+    env_file:
+      - '.env'
+    build:
+      context: ./docker/php
+      args:
+        PORT: 80
+        TAG: ${PHP_VERSION}
+        UID: $U_ID
+    environment:
+      PHP_IDE_CONFIG: serverName=Docker
+      XDEBUG_CLIENT_HOST: ${XDEBUG_CLIENT_HOST:-172.17.0.1} # MacOS users: host.docker.internal
+    volumes:
+      - ./:/appdata/www
+      - ./docker/php/bash/.bash_history:/home/appuser/.bash_history
+      - ~/.ssh/id_rsa:/home/appuser/.ssh/id_rsa

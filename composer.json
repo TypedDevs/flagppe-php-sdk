@@ -1,0 +1,15 @@
+{
+    "name": "flagppe/sdk",
+    "autoload": {
+        "psr-4": {
+            "Flagppe\\Sdk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "TypedDevs",
+            "email": "team@typeddevs.com"
+        }
+    ],
+    "require": {}
+}
